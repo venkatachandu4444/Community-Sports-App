@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0E0E0E"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back"
+                android:tint="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Post Match Results"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
+
+        <!-- Select Game Label (will be hidden when coming from Create Match) -->
+        <TextView
+            android:id="@+id/tvSelectGameLabel"
+            android:layout_marginTop="30dp"
+            android:text="SELECT GAME/MATCH"
+            android:textSize="12sp"
+            android:textColor="#9E9E9E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <!-- Match Title Display -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutMatchTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundColor="#1A1A1A"
+            app:boxStrokeColor="#2E2E2E"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusBottomEnd="14dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMatchTitle"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Royal Strikers vs City Kings (Jan 12)"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:focusable="false"
+                android:background="@null" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Overall Result -->
+        <TextView
+            android:layout_marginTop="24dp"
+            android:text="OVERALL RESULT"
+            android:textSize="12sp"
+            android:textColor="#9E9E9E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/etOverallResult"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="10dp"
+            android:hint="Ex. Royal Strikers won by 25 runs"
+            android:padding="16dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777"
+            android:background="@drawable/bg_input_dark"
+            android:textSize="14sp" />
+
+        <!-- Winning Team -->
+        <TextView
+            android:layout_marginTop="24dp"
+            android:text="WINNING TEAM / PLAYER"
+            android:textSize="12sp"
+            android:textColor="#9E9E9E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/etWinningTeam"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="10dp"
+            android:hint="Enter winning team or player name"
+            android:padding="16dp"
+            android:drawableStart="@drawable/ic_trophy"
+            android:drawablePadding="12dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777"
+            android:background="@drawable/bg_input_dark"
+            android:textSize="14sp" />
+
+        <!-- Result Images -->
+        <TextView
+            android:layout_marginTop="24dp"
+            android:text="RESULT IMAGES"
+            android:textSize="12sp"
+            android:textColor="#9E9E9E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/layoutUploadPhotos"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/bg_upload_dashed">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_camera"
+                android:tint="#FF6A33" />
+
+            <TextView
+                android:text="Upload Photos"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="Scorecard, Teams, Awards"
+                android:textColor="#888888"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Publish Button -->
+        <Button
+            android:id="@+id/btnPublishResults"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="30dp"
+            android:text="Publish Results"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#FF6A33"
+            android:drawableEnd="@drawable/ic_upload"
+            android:drawablePadding="8dp" />
+
+    </LinearLayout>
+</ScrollView>
+
