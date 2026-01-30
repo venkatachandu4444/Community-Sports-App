@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Community Sports App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            color: #dc3545;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #dc3545;
+        }
+
+        .section h3 {
+            color: #333;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .section p, .section li {
+            font-size: 1.05em;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .section ul, .section ol {
+            margin-left: 25px;
+            margin-top: 10px;
+        }
+
+        .section li {
+            margin-bottom: 12px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .warning-box h3 {
+            color: #856404;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .warning-box h3::before {
+            content: "⚠️";
+            font-size: 1.5em;
+        }
+
+        .warning-box p, .warning-box li {
+            color: #856404;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .info-box h3 {
+            color: #0c5460;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box h3::before {
+            content: "ℹ️";
+            font-size: 1.5em;
+        }
+
+        .info-box p, .info-box li {
+            color: #0c5460;
+        }
+
+        .steps-container {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #e0e0e0;
+        }
+
+        .step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            align-items: start;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #1E88E5 0%, #1565C0 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            margin-top: 0;
+            color: #1E88E5;
+            font-size: 1.2em;
+        }
+
+        .step-content p {
+            margin: 8px 0 0 0;
+            color: #555;
+        }
+
+        .contact-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .contact-box h3 {
+            color: #dc3545;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            margin: 8px 0;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 25px 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        strong {
+            color: #333;
+        }
+
+        a {
+            color: #1E88E5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .button-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+        }
+
+        .button-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            .step {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Delete Your Account</h1>
+            <p>Community Sports App</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Account Deletion Instructions</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <p>We're sorry to see you go! If you've decided to delete your Community Sports App account, this page will guide you through the process.</p>
+            </div>
+
+            <div class="warning-box">
+                <h3>Important - Account Deletion is Permanent</h3>
+                <p>Before proceeding, please understand that deleting your account is an <strong>irreversible action</strong>. Once deleted:</p>
+                <ul>
+                    <li>Your account cannot be recovered or reactivated</li>
+                    <li>All your personal information will be permanently deleted</li>
+                    <li>Your profile, photos, and uploaded content will be removed</li>
+                    <li>Your match statistics and event history will be lost</li>
+                    <li>You will lose access to all teams and communities you've joined</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>What Gets Deleted?</h2>
+                <p>When you delete your account, the following data will be permanently removed:</p>
+                <ul>
+                    <li><strong>Personal Information:</strong> Name, email address, phone number, password</li>
+                    <li><strong>Profile Data:</strong> Profile picture, bio, sports preferences, skill level</li>
+                    <li><strong>User Content:</strong> Photos, videos, highlights you've uploaded</li>
+                    <li><strong>Activity Data:</strong> Match scores, team memberships, event participations</li>
+                    <li><strong>Communication History:</strong> Notifications, messages, and app preferences</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>What Happens to Your Contributions?</h3>
+                <p>Some data may be retained in anonymized form to maintain the integrity of the platform:</p>
+                <ul>
+                    <li>Match scores and statistics you contributed may remain visible but will be anonymized</li>
+                    <li>Event details for matches you organized may remain for historical records</li>
+                    <li>Public comments or posts may be retained in anonymized form</li>
+                </ul>
+                <p><strong>Note:</strong> These anonymized data cannot be traced back to you or your deleted account.</p>
+            </div>
+
+            <div class="section">
+                <h2>How to Delete Your Account</h2>
+                
+                <h3>Option 1: Delete via Mobile App (Recommended)</h3>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Open the App</h3>
+                            <p>Launch the Community Sports App on your mobile device and ensure you're logged in to the account you wish to delete.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Navigate to Settings</h3>
+                            <p>Tap on your profile picture or navigate to the main menu, then select "Settings" or "Account Settings".</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Find Delete Account Option</h3>
+                            <p>Scroll down to find the "Delete Account" or "Account Management" section. This is typically located at the bottom of the settings page.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Confirm Deletion</h3>
+                            <p>Read the warning message carefully, then tap "Delete My Account" or "Confirm Deletion". You may be asked to enter your password or verify your identity.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Verify via Email</h3>
+                            <p>Check your registered email for a verification message. Click the confirmation link to complete the deletion process.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h3>Account Deleted</h3>
+                            <p>Your account and all associated data will be permanently deleted within 30 days. You'll receive a final confirmation email once the deletion is complete.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Option 2: Request Deletion via Email</h3>
+                <p>If you're unable to access the app or prefer to delete your account via email, follow these steps:</p>
+                <ol>
+                    <li>Send an email to <strong>support@communitysportsapp.com</strong></li>
+                    <li>Use the subject line: <strong>"Account Deletion Request"</strong></li>
+                    <li>Include your registered email address and username in the email body</li>
+                    <li>Provide a brief reason for deletion (optional)</li>
+                    <li>Our support team will verify your identity and process the deletion within 5-7 business days</li>
+                    <li>You'll receive a confirmation email once your account is deleted</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>Alternatives to Account Deletion</h2>
+                <p>If you're considering deleting your account due to privacy concerns or temporary reasons, consider these alternatives:</p>
+                <ul>
+                    <li><strong>Deactivate Temporarily:</strong> Temporarily disable your account instead of permanently deleting it (if available)</li>
+                    <li><strong>Adjust Privacy Settings:</strong> Update your privacy settings to control what information is shared</li>
+                    <li><strong>Remove Content:</strong> Delete specific photos, videos, or posts without deleting your entire account</li>
+                    <li><strong>Take a Break:</strong> Simply log out and take a break without deleting your account</li>
+                    <li><strong>Update Preferences:</strong> Adjust notification settings or content preferences</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Data Retention Timeline</h2>
+                <p>Here's what happens to your data after you request account deletion:</p>
+                <ul>
+                    <li><strong>Immediately:</strong> Your account is marked for deletion and you lose access to the app</li>
+                    <li><strong>Within 7 days:</strong> Your profile becomes invisible to other users</li>
+                    <li><strong>Within 30 days:</strong> All personal information and user content is permanently deleted from our systems</li>
+                    <li><strong>After 30 days:</strong> Only anonymized statistical data may remain for platform analytics</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>Need Help?</h3>
+                <p>If you're experiencing issues with the app or have concerns, our support team is here to help before you decide to delete your account. We may be able to resolve your concerns!</p>
+            </div>
+
+            <div class="contact-box">
+                <h3>Contact Support</h3>
+                <p>If you have questions about account deletion or need assistance, please contact us:</p>
+                <p><strong>Email:</strong> support@communitysportsapp.com</p>
+                <p><strong>Subject Line:</strong> Account Deletion Inquiry</p>
+                <p><strong>Response Time:</strong> We typically respond within 24-48 hours</p>
+            </div>
+
+            <div class="section">
+                <h2>After Deletion</h2>
+                <p>Once your account is deleted:</p>
+                <ul>
+                    <li>You will receive a final confirmation email</li>
+                    <li>You can create a new account in the future using the same email address</li>
+                    <li>Previous data from your deleted account will not be restored</li>
+                    <li>You'll need to start fresh with a new profile</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin: 40px 0;">
+                <p style="font-size: 1.1em; margin-bottom: 15px;">Still want to proceed?</p>
+                <p style="color: #666; margin-bottom: 20px;">Open the Community Sports App to delete your account from Settings</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 Community Sports App. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="privacy-policy.html">Privacy Policy</a> | 
+                <a href="delete-account.html">Delete Account</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
